@@ -1,0 +1,25 @@
+<h2>Calendar Appointments</h2>
+<form (ngSubmit)="addAppointment()">
+  <label for="title">Title:</label>
+  <input type="text" id="title" [(ngModel)]="newAppointment.title" required />
+  <label for="date">Date:</label>
+  <input type="date" id="date" [(ngModel)]="newAppointment.date" required />
+  <button type="submit">Add Appointment</button>
+</form>
+
+<div class="calendar">
+  <div
+    class="appointment"
+    *ngFor="let appointment of appointments; let i = index"
+    cdkDrag
+    (cdkDropList)="drop($event)"
+  >
+    <div class="appointment-header" cdkDragHandle>
+      <h3>{{ appointment.title }}</h3>
+      <button (click)="deleteAppointment(appointment)">Delete</button>
+    </div>
+    <div class="appointment-details">
+      <p>{{ appointment.date | date }}</p>
+    </div>
+  </div>
+</div>

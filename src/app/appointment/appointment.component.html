@@ -1,0 +1,9 @@
+<div class="appointment" cdkDrag>
+  <div class="appointment-header" cdkDragHandle>
+    <h3>{{ appointment.title }}</h3>
+    <button (click)="deleteAppointment()">Delete</button>
+  </div>
+  <div class="appointment-details">
+    <p>{{ appointment.date | date }}</p>
+  </div>
+</div>
